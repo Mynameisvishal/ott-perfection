@@ -1,0 +1,17 @@
+.register__logo{
+    position: fixed;
+    left: 10px;
+    top: 5px;
+    height: 60px;
+}
+.Register__title{
+    font-size: 28px;
+    font-weight: 600;
+}
+body{
+    background: url("../images/background.jpg") no-repeat;
+    background-size: cover;
+}
+.Register__form{
+    background: transparent;
+}

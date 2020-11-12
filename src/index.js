@@ -3,11 +3,22 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'semantic-ui-css/semantic.min.css'
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Register from './authentication/Register';
+import Login from "./authentication/Login";
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <Router>
+      <Switch>
+        <Route path="/" exact component={App}/>
+        <Route path="/login" component={Login}/>
+        <Route path="/register" component={Register}/>
+      </Switch>
+    </Router>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 
