@@ -1,0 +1,16 @@
+.navbar{
+    position: fixed;
+    top:0;
+    width: 100%;
+    height: 80px;
+    padding: 20px;
+    /* background: black; */
+    object-fit: cover;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+}
+.nav__black{
+    background-color: #111 !important;
+    transition: all 0.7s;
+}

@@ -1,8 +1,8 @@
 import React, { useState,useEffect } from 'react';
 import "./Register.css";
+import logo from '../images/MovieBuzzLogo.png';
 import { Button, Form, Grid,Image,Message,Segment } from 'semantic-ui-react';
 import { Link, useHistory } from 'react-router-dom';
-import logo from '../images/MovieBuzzLogo.png';
 
 function Register(props) {
     const [username, setUsername] = useState('');
@@ -41,14 +41,16 @@ function Register(props) {
             setErrors('Password length should be minimum 6 characters');    
 
         } else {
-
-            const user = {
-                mail: mail,
-                password: password,
-            }
-
-            const users = JSON.parse(localStorage.getItem('users'));
+            const users = (JSON.parse(localStorage.getItem('users')));
+            
             if (users) {
+                const no = Object.keys(users).length;
+                const user = {
+                    [no]: {
+                        mail: mail,
+                        password: password,
+                    }
+                };
                 const currentUser = { ...users, ...user };
                 localStorage.setItem('users', JSON.stringify(currentUser));    
                 setUsername('');
@@ -58,6 +60,12 @@ function Register(props) {
                 localStorage.setItem('location', 'home');
                 props.history.push('/');
             } else { 
+                const user = {
+                    0: {
+                        mail: mail,
+                        password: password,
+                    }
+                };
                 localStorage.setItem('users', JSON.stringify(user));
                 setUsername('');
                 setMail('');

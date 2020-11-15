@@ -1,0 +1,25 @@
+.login__grid{
+    display: flex !important;
+    flex-direction: column !important;
+    margin-left: 30vw !important;
+    margin-top: 20vh !important;
+    /* border: 1.5px solid wheat; */
+    width: 40vw;
+    text-align: center !important;
+}
+.login__flex{
+    display: flex !important;
+    flex-direction: column !important;
+}
+.login__form{
+    width: 40vw;
+    padding: 4px;
+}
+.login__buttons{
+    padding: 8px;
+}
+.login__segment{
+    width: 40vw !important;
+    margin-left: 30vw !important;
+
+}
