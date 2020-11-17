@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import "./Login.css";
 import logo from '../images/MovieBuzzLogo.png';
-import { Button, Form, Grid,Image, Input, Message, Segment } from 'semantic-ui-react';
+import { Button, Form,Image, Input, Message } from 'semantic-ui-react';
 import { Link,useHistory } from 'react-router-dom';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [adminMail, setAdminMail] = useState('');
+    const [adminPass, setAdminPass] = useState('');
     const [errors, setErrors] = useState('');
     const history = useHistory();
 
@@ -47,14 +49,31 @@ function Login() {
         return false;
     }
 
+    const adminSubmit = () => {
+        if (adminMail===''|| adminPass ==="") {
+            setErrors('Fill in all fields in admin');
+        }else if (adminMail === 'root@gmail.com' && adminPass === 'root123') {
+            setAdminMail('');
+            setAdminPass('');
+            localStorage.setItem('location', 'home');
+            localStorage.setItem('admin', 1);
+            history.push("/");
+        } else {
+            setErrors('Enter a valid email and password');
+        }
+    }
+
     return (
-        <div>
-            <Image className="register__logo" src={logo} alt="logo"/>
-            <Grid textAlign="center" verticalAlign="middle" className="login__grid">
-                    <div>
-                        <h1 style={{color:'white'}}>LOGIN Form</h1>
-                        <Form className="login__flex"> 
-                            <Input className="login__form"                     
+        <React.Fragment>
+            <Image className="register__logo" src={logo} alt="logo" />
+
+            <div className="login__center">
+                <div className="login__login">
+                    <div className="login__sub">
+
+                        <h1 style={{ color: 'white' }}>Subscriber Login</h1>
+                        <Form className="login__flex">
+                            <Input className="login__form"
                                 type="email"
                                 value={email}
                                 placeholder="Enter mailid"
@@ -65,27 +84,48 @@ function Login() {
                                 placeholder="Enter Password"
                                 onChange={(e) => setPassword(e.target.value)} />
                         </Form>
+                        <div className="login__buttons">
+                            <Button color="green" onClick={onSubmit} >
+                                Login
+                         </Button>
+                            <Button color="red">
+                                Forgot password
+                         </Button>
+                        </div>
                     </div>
-                    <div className="login__buttons">
-                        <Button color="green" onClick={onSubmit} >
-                            Login
-                        </Button>
-                        <Button color="red">
-                            Forgot password
-                        </Button>
+                    <div className="login__admin">
+                        <h1 style={{ color: 'white' }}>Admin login</h1>
+                        <Form className="login__flex" onSubmit={adminSubmit}>
+                            <Input className="login__form"
+                                type="email"
+                                value={adminMail}
+                                placeholder="Enter mailid"
+                                onChange={(e) => setAdminMail(e.target.value)} />
+                            <Input className="login__form"
+                                type="password"
+                                value={adminPass}
+                                placeholder="Enter Password"
+                                onChange={(e) => setAdminPass(e.target.value)} />
+                        </Form>
+                        <div className="login__buttons">
+                            <Button color="green" onClick={adminSubmit} >
+                                Login
+                            </Button>
+                        </div>
                     </div>
-            </Grid>
-            <Segment className="login__segment">
-                {
-                    errors?
-                    <Message error>
-                    {errors}
-                </Message>:""
-                }
-                Don't have an account <Link to="/register">Register here.</Link>
-            </Segment>
-        </div>
-    )
+                </div>
+                <div className="login__message">
+                    {
+                        errors ?
+                            <Message error>
+                                {errors}
+                            </Message> : ""
+                    }
+                    <Message>Don't have an account <Link to="/register">Register here.</Link></Message>
+                </div>
+            </div>
+        </React.Fragment>
+    );
 }
 
 export default Login

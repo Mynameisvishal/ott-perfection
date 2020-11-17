@@ -1,12 +1,36 @@
-.login__grid{
+/* .login__gridrow{
     display: flex !important;
-    flex-direction: column !important;
+    justify-content: space-between !important;
+    width: 70% !important;
+    margin: 20px 50px !important;
+} */
+.login__center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+.login__login{
+    display: flex;
+}
+.login__reg{
+    margin-right: 260px !important;
+}
+
+/* .login__grid{
+    display: flex !important;
+    flex-direction: row !important;
     margin-left: 30vw !important;
     margin-top: 20vh !important;
-    /* border: 1.5px solid wheat; */
-    width: 40vw;
+    width: 80vw !important;
     text-align: center !important;
 }
+.login__segment{
+    width: 40vw !important;
+    margin-left: 30vw !important;
+    
+} */
 .login__flex{
     display: flex !important;
     flex-direction: column !important;
@@ -17,9 +41,4 @@
 }
 .login__buttons{
     padding: 8px;
-}
-.login__segment{
-    width: 40vw !important;
-    margin-left: 30vw !important;
-
 }

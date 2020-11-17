@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 function Navbar() {
     const [show, setShow] = useState(false);
     const history = useHistory();
+    
     useEffect(() => {
         window.addEventListener("scroll", () => {
             if (window.scrollY > 120) {
@@ -18,15 +19,19 @@ function Navbar() {
         };  
     }, [])
     
-    const loggingOut = () => {
-        localStorage.removeItem('location');
-        history.push('/login');
-    }
+    useEffect(() => {
+        if (localStorage.getItem('location')!=="home") {
+            history.push('/login');
+        } 
+    }, [])
+    
     return (
         <div className={`navbar ${show && "nav__black"} `}>
             <Image src={logo} alt="MovieBuzz" />
-            <Button color="red" onClick={()=>{localStorage.removeItem('location');
-        history.push('/login');}}>Log out</Button>
+            <Button color="red" onClick={() => {
+                localStorage.removeItem('location');
+                history.push('/login');
+                }}>Log out</Button>
         </div>
     )
 }
