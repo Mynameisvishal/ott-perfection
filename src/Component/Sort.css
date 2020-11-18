@@ -1,0 +1,11 @@
+.sort__sort{
+    background-color: #db2828;
+    color: white;
+    border-radius: 4px;
+    font-weight: 600;
+}
+.sort__btn{
+    background: #db2828 !important;
+    color: white !important;
+    
+}

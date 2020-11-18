@@ -3,8 +3,9 @@ import './Navbar.css';
 import { Button, Image } from "semantic-ui-react";
 import logo from '../images/HomeLogo.png';
 import { useHistory } from 'react-router-dom';
+import Sort from './Sort';
 
-function Navbar() {
+function Navbar({setSorting}) {
     const [show, setShow] = useState(false);
     const history = useHistory();
     
@@ -28,12 +29,16 @@ function Navbar() {
     return (
         <div className={`navbar ${show && "nav__black"} `}>
             <Image src={logo} alt="MovieBuzz" />
-            <Button color="red" onClick={() => {
-                localStorage.removeItem('location');
-                history.push('/login');
+            <div className={`${show && "nav__flex"}`}>
+                {show ? <Sort setSorting={setSorting} />:""}
+                <Button color="red" onClick={() => {
+                    localStorage.removeItem('location');
+                    localStorage.removeItem('admin');
+                    history.push('/login');
                 }}>Log out</Button>
+            </div>
         </div>
-    )
+    );
 }
 
 export default Navbar

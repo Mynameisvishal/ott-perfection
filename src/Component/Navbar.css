@@ -14,3 +14,8 @@
     background-color: #111 !important;
     transition: all 0.7s;
 }
+.nav__flex{
+    display: flex;
+    width: 40vw;
+    justify-content: space-between;
+}

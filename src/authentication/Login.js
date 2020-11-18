@@ -72,7 +72,7 @@ function Login() {
                     <div className="login__sub">
 
                         <h1 style={{ color: 'white' }}>Subscriber Login</h1>
-                        <Form className="login__flex">
+                        <Form className="login__flex" onSubmit={onSubmit}>
                             <Input className="login__form"
                                 type="email"
                                 value={email}
