@@ -44,10 +44,6 @@ export default function App() {
   const [english, setEnglish] = useState(false);
   const [hindi, setHindi] = useState(false);
  
-  useEffect(() => {
-    console.log(handler);
-    console.log(handler.action);
-  },[])
   const genrelist = (genre) => {
     var currentGenreMovies = [];
     for (const [key, value] of Object.entries(defaultMovies)) {
@@ -93,7 +89,7 @@ export default function App() {
   return (
     <div>
       <Navbar setSorting={setSorting} setEnglish={setEnglish} setHindi={setHindi} setActionB={setActionB} setComedyB={setComedyB} setCrimeB={setCrimeB} setRomanticB={setRomanticB}/>
-      <Banner />
+      <Banner defaultMovies={defaultMovies} setDefaultMovies={setDefaultMovies}/>
       {action ? <Row title={"Action Movie"} defaultMovies={defaultMovies} setDefaultMovies={setDefaultMovies} fetchURL={genrelist("Action Movie")} dispatch={dispatch}
         handler={handler} Largeone /> :""}
       {romantic ? <Row title={"Romantic Movie"} defaultMovies={defaultMovies} setDefaultMovies={setDefaultMovies} fetchURL={genrelist("Romantic Movie")} dispatch={dispatch}

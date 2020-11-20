@@ -82,10 +82,11 @@ function Register(props) {
             
             <Image className="register__logo" src={logo} alt="logo"/>
            
-            <Grid textAlign="center" verticalAlign="middle" className="register__grid">
-                <Grid.Row style={{ minWidth: 450, marginTop: 0 }}>
+           
+                    <div className="register__center">
+
                     <Form onSubmit={()=>{onSubmit()}}>
-                        <Segment stacked>
+                        <Segment stacked> 
 
                             <h1 className="Register__title">Register to Movie Buzz</h1>
                             <Form.Input
@@ -132,9 +133,7 @@ function Register(props) {
                             </Button>
                         </Segment>
                     </Form>
-                </Grid.Row>
-
-                <Grid.Row>
+                
                     <Segment>
                         { errors ?
                             
@@ -142,12 +141,11 @@ function Register(props) {
                                 {errors}
                             </Message>:""
                         }
-                        <h5>Aldready have an account <Link to="/login">Click here.</Link></h5>
+                        <h5 className="reg__redirect">Aldready have an account <Link to="/login">Click here.</Link></h5>
                     </Segment>
 
-                </Grid.Row>
-            </Grid>
-            
+                        </div>
+               
         </React.Fragment>
     )
 }

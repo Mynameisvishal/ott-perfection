@@ -4,14 +4,31 @@
     top: 5px;
     height: 60px;
 }
+.register__center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+}
 .Register__title{
     font-size: 28px;
     font-weight: 600;
+    color: black !important;
+}
+.reg__redirect{
+    color:black !important;
+}
+.register__grid{
+    background:none !important;
 }
 body{
     background: url("../images/background.jpg") no-repeat;
     background-size: cover;
 }
-.Register__form{
-    background: transparent;
+.reg__back{
+    background-color: none !important;
 }
+/* .Register__form{
+    background: transparent;
+} */
