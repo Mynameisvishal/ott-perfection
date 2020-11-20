@@ -7,7 +7,7 @@ function Row({ title, fetchURL, Largeone, dispatch, handler,defaultMovies,setDef
     
     const [modal, setModal] = useState(false);
     const [movie, setMovie] = useState({});
-
+    const [rating, setRating] = useState(2);
     const closeModal = () => setModal(false);
 
     const makeModalOn = (value) => {
@@ -21,11 +21,11 @@ function Row({ title, fetchURL, Largeone, dispatch, handler,defaultMovies,setDef
     }
 
     const submit = () => {
+        dispatch({ type: ACTIONS.ADD_RATING, payload: { movie: movie, rating: rating,setDefaultMovies: setDefaultMovies,defaultMovies: defaultMovies } });
         setModal(false);
     }
     const handleRate = (e, { rating }) => {
-        console.log(defaultMovies);
-        dispatch({ type: ACTIONS.ADD_RATING, payload: { movie: movie, rating: rating,setDefaultMovies: setDefaultMovies,defaultMovies: defaultMovies } });
+        setRating(rating);
     }
     return (
         <React.Fragment>
